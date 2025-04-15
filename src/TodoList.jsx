@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./todoList.css";
 import icon from "./assets/icon.png";
 import "react-toastify/dist/ReactToastify.css";
 import "./todoList.css";
@@ -22,14 +21,14 @@ const TodoList = () => {
       toast.error("You must write something!", { position: "top-right" });
       return;
     }
-      const taskExists = tasks.some(
-        (task) => task.text.toLowerCase() === inputValue.trim().toLowerCase()
-      );
+    const taskExists = tasks.some(
+      (task) => task.text.toLowerCase() === inputValue.trim().toLowerCase()
+    );
 
-      if (taskExists) {
-        toast.warning("Task already exists!", { position: "top-right" });
-        return;
-      }
+    if (taskExists) {
+      toast.warning("Task already exists!", { position: "top-right" });
+      return;
+    }
     setTasks([...tasks, { text: inputValue, completed: false }]);
     setInputValue("");
   };
